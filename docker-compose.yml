@@ -1,0 +1,44 @@
+
+services:
+  cassandra:
+    image: cassandra:4.1
+    container_name: cassandra_db
+    ports:
+      - "9042:9042"
+    environment:
+      - CASSANDRA_CLUSTER_NAME=FoodCluster
+      - MAX_HEAP_SIZE=512M
+      - HEAP_NEWSIZE=100M
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+    healthcheck:
+      test: ["CMD", "cqlsh", "-e", "describe keyspaces"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  api:
+    build: .
+    container_name: food_api
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+      - go_mod:/go/pkg/mod # Go mod cache için
+    depends_on:
+      cassandra:
+        condition: service_healthy
+    environment:
+      - CASSANDRA_HOST=cassandra
+      - APP_ENV=development
+    restart: unless-stopped
+
+volumes:
+  cassandra_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: D:/Projects/BigProjects/Yemekhane/CategoryAPI/categoryData
+  go_mod:

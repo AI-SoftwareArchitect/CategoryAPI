@@ -1,0 +1,9 @@
+environment: development
+
+cassandra:
+  hosts:
+    - "127.0.0.1"
+  keyspace: "foodcluster"
+
+server:
+  port: "8080"
