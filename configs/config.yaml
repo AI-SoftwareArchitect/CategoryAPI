@@ -2,7 +2,7 @@ environment: development
 
 cassandra:
   hosts:
-    - "127.0.0.1"
+    - "159.89.30.182:9042"
   keyspace: "foodcluster"
 
 server:

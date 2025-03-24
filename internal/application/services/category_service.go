@@ -33,3 +33,4 @@ func (s *CategoryService) UpdateCategory(category *entities.Category) error {
 func (s *CategoryService) DeleteCategory(id string) error {
     return s.repo.Delete(id)
 }
+

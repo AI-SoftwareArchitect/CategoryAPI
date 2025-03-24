@@ -1,7 +1,7 @@
 package entities
 
 type Category struct {
-    ID          int `json:"categoryid"`
+    ID          int `json:"id"`
     Name        string    `json:"categoryname"`
     Description string    `json:"categorydescription"`
 }
@@ -9,3 +9,5 @@ type Category struct {
 func (Category) TableName() string {
     return "category"
 }
+
+
