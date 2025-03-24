@@ -46,13 +46,3 @@ Projeye katkıda bulunmak için:
 3. Değişikliklerinizi commit'leyin.
 4. Pull request göndererek katkılarınızı paylaşın.
 
-## Lisans
-
-Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
-
-## İletişim
-
-Proje ile ilgili sorularınız ya da önerileriniz için iletişim kurabilirsiniz:
-- E-posta: example@domain.com
-- GitHub: [kullanıcı_adı](https://github.com/kullanıcı_adı)
-
